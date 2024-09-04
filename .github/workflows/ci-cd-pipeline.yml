@@ -34,16 +34,16 @@ jobs:
 
       - name: Check for Terraform Files
         run: |
-          if [ -z "$(ls -A ./terraform/*.tf 2>/dev/null)" ]; then
+          if [ -z "$(ls -A /terraform/*.tf 2>/dev/null)" ]; then
           echo "No Terraform files found, skipping."
           exit 0
           fi
 
       - name: Initialize Terraform
         run: |
+          cd /terraform
           terraform init
-          workking_dir: /terraform
-
+          
       - name: Plan Terraform
         run: |
           terraform plan
