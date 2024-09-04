@@ -31,9 +31,9 @@ jobs:
     #       echo "Directory structure:"
     #       ls -la
 
-    #   - name: Initialize Terraform
-    #     run: |
-    #       terraform init
+      - name: Initialize Terraform
+        run: |
+          terraform init
 
       - name: Plan Terraform
         run: |
@@ -44,7 +44,7 @@ jobs:
         run: |
           terraform apply -auto-approve
           working_dir: /Users/shessy/Desktop/shortlet_cloud_assignment/my-shortlet-assignment/terraform
-          
+
 
 
   build-and-deploy:
