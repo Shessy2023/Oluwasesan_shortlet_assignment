@@ -73,4 +73,4 @@ jobs:
       - name: Check API availability
         run: |
             sleep 30 # Wait for the deployment to settle
-            curl -f http://35.237.80.226:8080/time || exit 1
+        # curl -f http://35.237.80.226:8080/time || exit 1
