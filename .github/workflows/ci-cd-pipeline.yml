@@ -24,13 +24,20 @@ jobs:
     #   - name: Set Project
     #     run: gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
     
-      - name: Create and Change Directory
+    #   - name: Create and Change Directory
+    #     run: |
+    #       mkdir -p /terraform
+    #       cp -r./terraform/* /terraform/
+    #       cd /terraform
+    #       echo "Directory structure:"
+    #       ls -la
+
+      - name: Check for Terraform Files
         run: |
-          mkdir -p /terraform
-          cp -r./terraform/* /terraform/
-          cd /terraform
-          echo "Directory structure:"
-          ls -la
+          if [ -z "$(ls -A ./terraform/*.tf 2>/dev/null)" ]; then
+          echo "No Terraform files found, skipping."
+          exit 0
+          fi
 
       - name: Initialize Terraform
         run: |
