@@ -25,15 +25,19 @@ jobs:
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v1
+        working-directory: ./
 
       - name: Initialize Terraform
         run: terraform init
+        working-directory: ./gcp-terraform
 
       - name: Plan Terraform Deployment
         run: terraform plan -out=tfplan
+        working-directory: ./gcp-terraform
 
       - name: Apply Terraform Deployment
         run: terraform apply -auto-approve tfplan
+        working-directory: ./gcp-terraform
 
   build-and-deploy:
     name: Build and Deploy Docker Image
