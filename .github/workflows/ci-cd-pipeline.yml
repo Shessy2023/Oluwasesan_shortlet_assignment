@@ -27,23 +27,24 @@ jobs:
       - name: Create and Change Directory
         run: |
 
-          cd /Users/shessy/Desktop/shortlet_cloud_assignment/my-shortlet-assignment/terraform
+          cd /terraform
           echo "Directory structure:"
           ls -la
 
       - name: Initialize Terraform
         run: |
           terraform init
+          workking_dir: /terraform
 
       - name: Plan Terraform
         run: |
           terraform plan
-          working_dir: /Users/shessy/Desktop/shortlet_cloud_assignment/my-shortlet-assignment/terraform
+          working_dir: /terraform
 
       - name: Apply Terraform
         run: |
           terraform apply -auto-approve
-          working_dir: /Users/shessy/Desktop/shortlet_cloud_assignment/my-shortlet-assignment/terraform
+          working_dir: /terraform
 
 
 
