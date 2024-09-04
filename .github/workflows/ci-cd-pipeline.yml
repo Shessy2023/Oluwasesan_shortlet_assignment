@@ -26,7 +26,8 @@ jobs:
     
       - name: Create and Change Directory
         run: |
-
+          mkdir -p /terraform
+          cp -r./terraform/* /terraform/
           cd /terraform
           echo "Directory structure:"
           ls -la
