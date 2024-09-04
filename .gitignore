@@ -1,0 +1,29 @@
+# Terraform workspace files
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+
+# Local Terraform files
+.terraform.lock.hcl
+
+# Variable files containing sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore configuration files that are not part of the main configuration
+terraform.rc
+.terraformrc
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor specific files

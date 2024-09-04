@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  
 
 jobs:
   terraform:
@@ -15,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.2.1
@@ -28,19 +26,18 @@ jobs:
     
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v1
-        
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./terraform
+        working-directory: /terraform
 
       - name: Plan Terraform Deployment
         run: terraform plan -out=tfplan
-        working-directory: ./terraform
+        working-directory: /terraform
 
       - name: Apply Terraform Deployment
         run: terraform apply -auto-approve tfplan
-        working-directory: ./terraform
+        working-directory: /terraform
 
   build-and-deploy:
     name: Build and Deploy Docker Image
