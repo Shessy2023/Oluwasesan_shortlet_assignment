@@ -38,12 +38,10 @@ jobs:
 
       - name: Plan Terraform
         run: |
-          cd terraform
           terraform plan
 
       - name: Apply Terraform
         run: |
-          cd terraform
           terraform apply -auto-approve
 
   build-and-deploy:
