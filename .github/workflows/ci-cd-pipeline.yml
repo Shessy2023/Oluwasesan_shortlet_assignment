@@ -38,12 +38,12 @@ jobs:
       - name: Plan Terraform
         run: |
           terraform plan
-          working_dir: /terraform
+          working_dir: terraform
 
       - name: Apply Terraform
         run: |
           terraform apply -auto-approve
-          working_dir: /terraform
+          working_dir: terraform
 
 
   build-and-deploy:
