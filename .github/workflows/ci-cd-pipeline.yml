@@ -23,21 +23,24 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
+      - name: Set Project
+        run: gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+    
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v1
         # working-directory: ./
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./gcp-terraform
+        working-directory: /gcp-terraform
 
       - name: Plan Terraform Deployment
         run: terraform plan -out=tfplan
-        working-directory: ./gcp-terraform
+        working-directory: /gcp-terraform
 
       - name: Apply Terraform Deployment
         run: terraform apply -auto-approve tfplan
-        working-directory: ./gcp-terraform
+        working-directory: /gcp-terraform
 
   build-and-deploy:
     name: Build and Deploy Docker Image
