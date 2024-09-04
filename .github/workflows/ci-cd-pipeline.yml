@@ -38,12 +38,13 @@ jobs:
       - name: Plan Terraform
         run: |
           terraform plan
-          working_dir: terraform
+          working_dir: /Users/shessy/Desktop/shortlet_cloud_assignment/my-shortlet-assignment/terraform
 
       - name: Apply Terraform
         run: |
           terraform apply -auto-approve
-          working_dir: terraform
+          working_dir: /Users/shessy/Desktop/shortlet_cloud_assignment/my-shortlet-assignment/terraform
+          
 
 
   build-and-deploy:
